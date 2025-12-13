@@ -7,7 +7,9 @@
       name="description"
       content="Professional engineering services in UPS, inverters, solar panels, and installations in Nigeria."
     />
-    <title>Integrity Engineering Services - UPS, Inverters & Solar Solutions</title>
+    <title>
+      ⚙️ Integrity Engineering Services - UPS, Inverters & Solar Solutions
+    </title>
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
@@ -19,6 +21,7 @@
         font-family: "Roboto", sans-serif;
         color: #333;
         background: #f4f4f4;
+        scroll-behavior: smooth;
       }
       .container {
         max-width: 1200px;
@@ -31,9 +34,8 @@
       .bg-gray {
         background: #e0e0e0;
       }
-      /* Header */
       header {
-        background: #001f3f; /* Navy Blue */
+        background: #001f3f;
         color: white;
         position: sticky;
         top: 0;
@@ -64,7 +66,6 @@
         font-size: 2rem;
         cursor: pointer;
       }
-      /* Hero */
       .hero {
         background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 31, 63, 0.8)),
           url("https://via.placeholder.com/1920x600?text=Solar+Panels");
@@ -80,7 +81,7 @@
         font-size: 1.5rem;
       }
       .cta-btn {
-        background: #228b22; /* Forest Green */
+        background: #228b22;
         color: white;
         padding: 10px 20px;
         text-decoration: none;
@@ -88,57 +89,87 @@
         margin-top: 20px;
         display: inline-block;
       }
-      /* About */
-      .about-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        margin-top: 30px;
+      .cta-btn:hover {
+        background: #1a6b1a;
       }
-      /* Services */
-      .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-      }
-      .service-card {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: center;
-      }
-      /* Portfolio */
+      .about-grid,
       .portfolio-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
       }
-      .portfolio-item img {
-        width: 100%;
-        border-radius: 10px;
+      .about-grid,
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        margin-top: 40px;
       }
-      .portfolio-item p {
+      .about-item,
+      .portfolio-item {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 31, 63, 0.08);
         text-align: center;
-        margin-top: 10px;
+        transition: all 0.3s ease;
+        border-left: 4px solid #228b22;
+        position: relative;
+        overflow: hidden;
       }
-      /* Blog */
-      .blog-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
+      .about-item::before,
+      .portfolio-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(34, 139, 34, 0.05),
+          rgba(0, 31, 63, 0.05)
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
       }
+      .about-item:hover,
+      .portfolio-item:hover {
+        transform: translateY(-12px) scale(1.03);
+        box-shadow: 0 12px 30px rgba(34, 139, 34, 0.25);
+      }
+      .about-item:hover::before,
+      .portfolio-item:hover::before {
+        opacity: 1;
+      }
+      .about-item h3,
+      .portfolio-item h3 {
+        color: #001f3f;
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+      .about-item p,
+      .portfolio-item p {
+        color: #666;
+        line-height: 1.6;
+        position: relative;
+        z-index: 1;
+        font-size: 0.95rem;
+      }
+      .service-card,
       .blog-post {
         background: white;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
       }
       .blog-post a {
         color: #228b22;
         text-decoration: none;
       }
-      /* Contact */
+      .blog-post a:hover {
+        text-decoration: underline;
+      }
       .contact-form {
         display: flex;
         flex-direction: column;
@@ -155,14 +186,55 @@
       .contact-info {
         text-align: center;
       }
-      /* Footer */
       footer {
         background: #001f3f;
         color: white;
-        text-align: center;
-        padding: 20px 0;
+        padding: 20px;
+        font-size: 0.9rem;
       }
-      /* Responsive Design */
+      footer a {
+        color: white;
+        text-decoration: none;
+      }
+      footer a:hover {
+        color: #228b22;
+      }
+      .footer-left a,
+      .footer-right a {
+        margin-right: 8px;
+      }
+      .footer-left a:last-child,
+      .footer-right a:last-child {
+        margin-right: 0;
+      }
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #228b22;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 99;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+      }
+      .back-to-top:hover {
+        background: #1a6b1a;
+        transform: translateY(-5px);
+      }
       @media (max-width: 768px) {
         .nav-links {
           display: none;
@@ -189,14 +261,23 @@
         .hero p {
           font-size: 1rem;
         }
+        .back-to-top {
+          bottom: 20px;
+          right: 20px;
+          width: 45px;
+          height: 45px;
+        }
+        footer .container {
+          flex-direction: column;
+          gap: 10px;
+        }
       }
     </style>
   </head>
   <body>
-    <!-- Header -->
     <header>
       <nav class="container">
-        <div class="logo">Integrity Engineering Services</div>
+        <div class="logo">⚙️ Integrity Engineering Services</div>
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -209,63 +290,73 @@
       </nav>
     </header>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="container">
         <h1>Reliable Power Solutions for Nigeria</h1>
         <p>Expert in UPS, Inverters, Solar Panels, and Installations</p>
-        <a href="#contact" class="cta-btn">Get a Quote</a>
+        <a href="quote.html" class="cta-btn">Get a Quote</a>
+        <a
+          href="#contact"
+          class="cta-btn"
+          style="background: #eb5e00; margin-left: 10px"
+          >Contact Us</a
+        >
       </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="section">
       <div class="container">
         <h2>About Us</h2>
         <p>
-          We are a team of certified engineers specializing in renewable energy
-          and power backup systems in Nigeria. With over 10 years of experience,
-          we provide tailored solutions for homes, businesses, and industries,
-          ensuring compliance with Nigerian standards like SON and NERC
-          regulations.
+          We are certified engineers specializing in renewable energy and power
+          backup systems in Nigeria. Over 10 years of experience delivering
+          tailored solutions.
         </p>
         <div class="about-grid">
           <div class="about-item">
-            <h3>Our Mission</h3>
+            <h3>🎯 Our Mission</h3>
             <p>
-              To deliver sustainable, efficient power solutions that combat
-              Nigeria's power challenges.
+              To deliver sustainable, efficient power solutions that empower
+              communities with reliable energy.
             </p>
           </div>
           <div class="about-item">
-            <h3>Our Vision</h3>
-            <p>A Nigeria powered by clean, reliable energy for all.</p>
+            <h3>✨ Our Vision</h3>
+            <p>
+              A Nigeria powered by clean, reliable energy for all homes,
+              businesses, and industries.
+            </p>
+          </div>
+          <div class="about-item">
+            <h3>🏆 Our Commitment</h3>
+            <p>
+              Expert engineering, transparent pricing, and exceptional aftercare
+              support ensuring complete satisfaction with 100% integrity ✅.
+            </p>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Services Section -->
+    <!--  emoji for card design -_-_-_->  ✅  🚨  💡-->
     <section id="services" class="section bg-gray">
       <div class="container">
         <h2>Our Services</h2>
         <div class="services-grid">
           <div class="service-card">
-            <h3>Solar Panel Installation</h3>
+            <h3>Solar Panel Installation 💡</h3>
             <p>
-              High-efficiency solar panels for residential and commercial use,
-              including grid-tie and off-grid systems.
+              High-efficiency solar panels for residential and commercial use.
             </p>
           </div>
           <div class="service-card">
             <h3>Inverter & UPS Systems</h3>
             <p>
               Design and installation of inverters and UPS for uninterrupted
-              power supply, customized for Nigerian voltage fluctuations.
+              power supply.
             </p>
           </div>
           <div class="service-card">
-            <h3>Maintenance & Repairs</h3>
+            <h3>Maintenance & Repairs 🚨</h3>
             <p>
               Regular servicing, troubleshooting, and upgrades for solar,
               inverters, and UPS systems.
@@ -274,38 +365,41 @@
           <div class="service-card">
             <h3>Energy Audits</h3>
             <p>
-              Professional assessments to optimize your power usage and
-              recommend cost-effective solutions.
+              Professional assessments to optimize power usage and recommend
+              cost-effective solutions.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Portfolio Section -->
     <section id="portfolio" class="section">
       <div class="container">
         <h2>Our Portfolio</h2>
-        <div class="portfolio-grid">
+        <div class="about-grid">
           <div class="portfolio-item">
+            <h3>Solar Panel Project in Lagos</h3>
             <img
               src="https://th.bing.com/th/id/OIP.cxzLyUU8_jD0iTBRNvTYoQHaEJ?w=268&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
               alt="Solar Panel Project in Lagos"
             />
             <p>
-              Solar installation for a school in Lagos, reducing costs by 60%.
+              Solar installation for a company in Lagos, reducing its cost by
+              40%.
             </p>
           </div>
           <div class="portfolio-item">
+            <h3>Inverter System in Abuja</h3>
             <img
-              src="data:image/webp;base64,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"
+              src="https://via.placeholder.com/300x180?text=Inverter+System+Abuja"
               alt="Inverter System in Abuja"
             />
             <p>Inverter and UPS setup for a corporate office in Abuja.</p>
           </div>
           <div class="portfolio-item">
+            <h3>Industrial UPS Maintenance in Port Harcourt</h3>
             <img
-              src="https://th.bing.com/th/id/OIP.A6lfLuZPU0_4CAQhieY4vQHaGL?w=220&h=184&c=7&r=0&o=7&pid=1.7&rm=3alt="
+              src="https://th.bing.com/th/id/OIP.A6lfLuZPU0_4CAQhieY4vQHaGL?w=220&h=184&c=7&r=0&o=7"
               alt="Industrial UPS Maintenance in Port Harcourt"
             />
             <p>Maintenance project for industrial UPS in Port Harcourt.</p>
@@ -314,7 +408,6 @@
       </div>
     </section>
 
-    <!-- Blog Section -->
     <section id="blog" class="section bg-gray">
       <div class="container">
         <h2>Blog & News</h2>
@@ -322,18 +415,15 @@
           <div class="blog-post">
             <h3>Benefits of Solar Energy in Nigeria</h3>
             <p>Explore how solar can save you money amid rising fuel costs.</p>
-            <a
-              href="https://www.bing.com/ck/a?!&&p=5c2f86d2c5c7de5bb90a4d83f16a1bbfa43ab9bfc41515abe8d7f94c67d110b7JmltdHM9MTc1NzU0ODgwMA&ptn=3&ver=2&hsh=4&fclid=391402b9-29d8-62c7-2e1d-17e6284663a1&psq=Benefits+of+Solar+Energy+in+Nigeria%0d%0aExplore+how+solar+can+save+you+money+amid+rising+fuel+costs.&u=a1aHR0cHM6Ly93d3cuZmVhbnNvbGFyLmNvbS5uZy9ibG9nL3NvbGFyLWVuZXJneS1zYXZpbmdzLW5pZ2VyaWE"
-              >Read More</a
-            >
+            <a href="#">Read More</a>
           </div>
           <div class="blog-post">
-            <h3>Choosing the Right Inverter for Your Home</h3>
+            <h3>Choosing the Right ✅ Inverter for Your Home</h3>
             <p>Tips from Nigerian engineers on inverter selection.</p>
-            <a href="">Read More</a>
+            <a href="#">Read More</a>
           </div>
           <div class="blog-post">
-            <h3>NERC Regulations for Power Installations.</h3>
+            <h3>NERC Regulations for Power Installations</h3>
             <p>Stay compliant with the latest Nigerian energy rules.</p>
             <a href="#">Read More</a>
           </div>
@@ -341,7 +431,6 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="section">
       <div class="container">
         <h2>Contact Us</h2>
@@ -352,46 +441,90 @@
           <button type="submit" class="cta-btn">Send Message</button>
         </form>
         <div class="contact-info">
-          <p>Email: integritysolutions@gmail.com</p>
-          <p>Phone: +234 802 859 1789</p>
-          <p>Address: Plot 2, Jibowu Estate Road, U-turn Bus-Stop, Abule-Egba Lagos, Nigeria</p>
+          <p>Email: adekunleade@gmail.com</p>
+          <p>Phone: +234 802 859 1789 || +234 808 083 3773</p>
+          <p>
+            Address: Plot 2, Jibowu Estate Road, U-turn Bus-Stop, Abule-Egba
+            Lagos, Nigeria
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Updated Footer -->
     <footer>
-      <div class="container">
-        <p>&copy; 2025 Integrity Engineering Services. All rights reserved.</p>
+      <div
+        class="container"
+        style="
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          align-items: center;
+        "
+      >
+        <div class="footer-left">
+          <a href="https://www.bluecarbon.com" target="_blank">Blue Carbon</a> |
+          <a href="https://www.quanta.com" target="_blank">Quanta</a> |
+          <a href="https://www.riello.com" target="_blank">Riello</a> |
+          <a href="https://www.huawei.com" target="_blank">Huawei</a> |
+          <a href="https://www.felicity.com" target="_blank">Felicity</a> |
+          <a href="https://www.rubitecsolar.com" target="_blank"
+            >Rubitec Solar</a
+          >
+          | <a href="https://www.goodwe.com" target="_blank">Goodwe</a> |
+          <a href="https://www.bluecamelenergy.com" target="_blank"
+            >Blue Camel Energy</a
+          >
+          |
+          <a href="https://www.sungrowpower.com" target="_blank">Sun Grow</a> |
+          <a href="https://www.greensolar.com" target="_blank">Green Solar</a>
+        </div>
+        <div class="footer-right">
+          <a href="https://facebook.com" target="_blank">Facebook</a> |
+          <a href="https://twitter.com" target="_blank">X</a> |
+          <a href="https://linkedin.com" target="_blank">LinkedIn</a> |
+          <a href="https://instagram.com" target="_blank">Instagram</a>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 10px; color: #fff">
+        &copy; 2025 Integrity Engineering Services. All rights reserved.
       </div>
     </footer>
 
+    <div class="back-to-top" id="backToTop">↑</div>
+
     <script>
-      // Mobile Menu Toggle
       const menuToggle = document.querySelector(".menu-toggle");
       const navLinks = document.querySelector(".nav-links");
-
       menuToggle.addEventListener("click", () => {
         navLinks.classList.toggle("active");
       });
 
-      // Smooth Scrolling for Nav Links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          });
-          navLinks.classList.remove("active"); // Close mobile menu
+          document
+            .querySelector(this.getAttribute("href"))
+            .scrollIntoView({ behavior: "smooth" });
+          navLinks.classList.remove("active");
         });
       });
 
-      // Form Submission (Placeholder - Add actual functionality if needed)
       const form = document.querySelector(".contact-form");
       form.addEventListener("submit", (e) => {
         e.preventDefault();
-        alert("Message sent! Thank you for contacting INTEGRITY ENGINEERING, Check the email you provided in 5 minutes for the requested quote.");
+        alert(
+          "Message sent! Thank you for contacting INTEGRITY ENGINEERING. Check your email for confirmation."
+        );
         form.reset();
+      });
+
+      const backToTopButton = document.getElementById("backToTop");
+      window.addEventListener("scroll", () => {
+        backToTopButton.classList.toggle("show", window.scrollY > 300);
+      });
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
     </script>
   </body>

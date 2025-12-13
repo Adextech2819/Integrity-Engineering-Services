@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Get a free quote for UPS, inverters, solar panels, and installation services from Integrity Engineering Services."
+    />
+    <title>Get a Quote - Integrity Engineering Services</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #001f3f;
+        --green: #228b22;
+        --green-dark: #1a6b1a;
+        --muted: #666;
+        --danger: #d9534f;
+        --success-bg: #d4edda;
+        --success-text: #155724;
+        --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        --focus-glow: 0 0 8px rgba(34, 139, 34, 0.25);
+        --max-width: 1100px;
+      }
+      /* Reset & layout */
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+        color: #333;
+        background: #f4f4f4;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.45;
+        scroll-behavior: smooth;
+      }
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      header {
+        background: var(--navy);
+        color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+      }
+      /* Logo with wheel icon */
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        font-size: 1.15rem;
+      }
+      .logo svg {
+        width: 40px;
+        height: 40px;
+        flex: 0 0 40px;
+        border-radius: 6px;
+        background: #fff;
+        padding: 5px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 18px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #fff;
+      }
+      /* Quote layout */
+      .quote-section {
+        padding: 56px 0;
+      }
+      .quote-container {
+        max-width: 900px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(18px);
+        transition: all 0.6s ease;
+      }
+      .quote-container.visible {
+        opacity: 1;
+        transform: none;
+      }
+      h1 {
+        margin: 0 0 8px;
+        color: var(--navy);
+        font-size: 1.9rem;
+        text-align: center;
+      }
+      p.lead {
+        text-align: center;
+        color: var(--muted);
+        margin: 0 0 22px;
+      }
+      /* Cards & form */
+      .form-card {
+        background: #fff;
+        padding: 22px;
+        border-radius: 10px;
+        box-shadow: var(--card-shadow);
+        margin-bottom: 18px;
+      }
+      .form-card h2 {
+        margin: 0 0 12px;
+        color: var(--navy);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.05rem;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .form-row-full {
+        display: block;
+      }
+      label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--navy);
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="number"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 11px 12px;
+        border-radius: 8px;
+        border: 1px solid #cfcfcf;
+        font-size: 0.98rem;
+        transition: box-shadow 0.18s, border-color 0.18s;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        box-shadow: var(--focus-glow);
+        border-color: var(--green);
+      }
+      textarea {
+        min-height: 110px;
+        resize: vertical;
+      }
+      .required {
+        color: var(--danger);
+        margin-left: 6px;
+        font-weight: 700;
+      }
+      .invalid {
+        border-color: var(--danger);
+        box-shadow: 0 0 6px rgba(217, 81, 78, 0.12);
+      }
+      .invalid .invalid-icon {
+        display: inline-block;
+      }
+      .invalid-feedback {
+        color: var(--danger);
+        font-size: 0.88rem;
+        margin-top: 6px;
+        display: none;
+      }
+      .invalid + .invalid-feedback {
+        margin-top: 6px;
+      }
+      .show-feedback {
+        display: block;
+      }
+      /* submit button with spinner */
+      .submit-row {
+        margin-top: 6px;
+      }
+      .submit-btn {
+        background: var(--green);
+        color: #fff;
+        border: none;
+        padding: 13px 16px;
+        border-radius: 9px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: transform 0.12s ease, background 0.12s ease,
+          opacity 0.12s ease;
+      }
+      .submit-btn:active {
+        transform: translateY(1px);
+      }
+      .submit-btn[disabled] {
+        opacity: 0.65;
+        cursor: not-allowed;
+      }
+      .spinner {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.35);
+        border-top-color: rgba(255, 255, 255, 1);
+        animation: spin 1s linear infinite;
+        display: inline-block;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      /* toast + server error box */
+      .toast-success {
+        position: fixed;
+        top: 18px;
+        right: 18px;
+        background: var(--success-bg);
+        color: var(--success-text);
+        padding: 14px 18px;
+        border-radius: 8px;
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+        display: none;
+        z-index: 1300;
+        min-width: 260px;
+      }
+      .toast-success.show {
+        display: block;
+      }
+      .server-error {
+        display: none;
+        background: #fff6f6;
+        border: 1px solid rgba(217, 81, 78, 0.14);
+        color: var(--danger);
+        padding: 12px;
+        border-radius: 8px;
+        margin-top: 10px;
+      }
+      .server-error.show {
+        display: block;
+      }
+      /* back-to-top */
+      #backToTop {
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        background: var(--green);
+        color: #fff;
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.22s ease;
+        z-index: 1200;
+        cursor: pointer;
+      }
+      #backToTop.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      #backToTop:hover {
+        background: var(--green-dark);
+      }
+      /* read-more */
+      a.read-more {
+        color: var(--green);
+        text-decoration: none;
+        font-weight: 700;
+      }
+      a.read-more:hover {
+        text-decoration: underline;
+        color: var(--green-dark);
+      }
+      /* footer: two columns */
+      footer {
+        background: var(--navy);
+        color: #fff;
+        padding: 22px 0;
+        margin-top: 28px;
+      }
+      .footer-grid {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        justify-content: space-between;
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .partners {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .partners a {
+        color: #fff;
+        text-decoration: none;
+        opacity: 0.95;
+      }
+      .socials {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .socials a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.04);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .socials a:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+      /* responsive */
+      @media (max-width: 880px) {
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .footer-grid {
+          flex-direction: column;
+          gap: 14px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="container" aria-label="Main navigation">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <!-- Wheel SVG next to company name -->
+          <div class="logo" aria-hidden="false">
+            <svg
+              viewBox="0 0 64 64"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <!-- stylized wheel icon -->
+              <circle cx="32" cy="32" r="28" fill="#fff" />
+              <circle cx="32" cy="32" r="16" fill="#001f3f" />
+              <g stroke="#fff" stroke-width="2" stroke-linecap="round">
+                <path d="M32 16v-2M32 50v-2M16 32h-2M50 32h-2" />
+                <path
+                  d="M25 25l-1.5-1.5M40 40l-1.5-1.5M25 39l-1.5 1.5M40 24l-1.5 1.5"
+                />
+              </g>
+            </svg>
+            <span>Integrity Engineering Services</span>
+          </div>
+        </div>
+
+        <ul class="nav-links" role="menubar" aria-label="Primary">
+          <li role="none"><a role="menuitem" href="web.html#home">Home</a></li>
+          <li role="none">
+            <a role="menuitem" href="web.html#about">About</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="web.html#services">Services</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="web.html#portfolio">Portfolio</a>
+          </li>
+          <li role="none"><a role="menuitem" href="web.html#blog">Blog</a></li>
+          <li role="none">
+            <a role="menuitem" href="web.html#contact">Contact</a>
+          </li>
+        </ul>
+
+        <button
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="primary-menu"
+        >
+          ☰
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="quote-section">
+        <div class="container">
+          <div
+            id="quoteContainer"
+            class="quote-container"
+            role="region"
+            aria-labelledby="quote-heading"
+          >
+            <h1 id="quote-heading">Request a Quote</h1>
+            <p class="lead">
+              Fill out the form below with your project details and we'll
+              provide you with a tailored quote. We reply within 24 hours.
+            </p>
+
+            <!-- server error box -->
+            <div
+              id="serverError"
+              class="server-error"
+              role="alert"
+              aria-live="assertive"
+            ></div>
+
+            <form
+              id="quoteForm"
+              class="quote-form"
+              novalidate
+              autocomplete="on"
+              aria-describedby="form-desc"
+            >
+              <input
+                type="hidden"
+                name="_subject"
+                value="New quote request - Integrity Engineering"
+              />
+              <!-- Contact card -->
+              <div class="form-card" aria-labelledby="contact-info">
+                <h2 id="contact-info">👤 Contact Information</h2>
+
+                <div class="form-row">
+                  <div>
+                    <label for="name"
+                      >Full Name <span class="required">*</span></label
+                    >
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      autocomplete="name"
+                      required
+                    />
+                    <div class="invalid-feedback" id="err-name">
+                      This field is required.
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="email"
+                      >Email Address <span class="required">*</span></label
+                    >
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      required
+                    />
+                    <div class="invalid-feedback" id="err-email">
+                      This field is required and must be a valid email.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div>
+                    <label for="phone"
+                      >Phone Number <span class="required">*</span></label
+                    >
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      inputmode="tel"
+                      autocomplete="tel"
+                      placeholder="e.g., 08012345678"
+                      required
+                    />
+                    <div class="invalid-feedback" id="err-phone">
+                      This field is required (digits only).
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="company">Company Name (Optional)</label>
+                    <input
+                      id="company"
+                      name="company"
+                      type="text"
+                      autocomplete="organization"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project Details -->
+              <div class="form-card" aria-labelledby="project-info">
+                <h2 id="project-info">🏗️ Project Details</h2>
+
+                <div class="form-row-full">
+                  <label for="service"
+                    >Service Type <span class="required">*</span></label
+                  >
+                  <select id="service" name="service" required>
+                    <option value="">Select a service...</option>
+                    <option>Solar Panel Installation</option>
+                    <option>Inverter Installation</option>
+                    <option>UPS System Setup</option>
+                    <option>Battery Storage</option>
+                    <option>Maintenance & Repairs</option>
+                    <option>Energy Audit</option>
+                    <option>Other</option>
+                  </select>
+                  <div class="invalid-feedback" id="err-service">
+                    Please select a service type.
+                  </div>
+                </div>
+
+                <div class="form-row-full" style="margin-top: 12px">
+                  <label for="address"
+                    >Property Address <span class="required">*</span></label
+                  >
+                  <input
+                    id="address"
+                    name="address"
+                    type="text"
+                    placeholder="Street address, city, state"
+                    required
+                  />
+                  <div class="invalid-feedback" id="err-address">
+                    This field is required.
+                  </div>
+                </div>
+
+                <div class="form-row" style="margin-top: 12px">
+                  <div>
+                    <label for="budget"
+                      >Estimated Budget (₦)
+                      <span class="required">*</span></label
+                    >
+                    <input
+                      id="budget"
+                      name="budget"
+                      type="number"
+                      min="0"
+                      placeholder="e.g., 500000"
+                      required
+                    />
+                    <div class="invalid-feedback" id="err-budget">
+                      Please enter an estimated budget (numbers only).
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="timeline"
+                      >Preferred Timeline <span class="required">*</span></label
+                    >
+                    <select id="timeline" name="timeline" required>
+                      <option value="">Select timeline...</option>
+                      <option>Urgent (within 1 week)</option>
+                      <option>Soon (1-2 weeks)</option>
+                      <option>Flexible (1-4 weeks)</option>
+                      <option>Planning phase</option>
+                    </select>
+                    <div class="invalid-feedback" id="err-timeline">
+                      Please select a timeline.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row-full" style="margin-top: 12px">
+                  <label for="details"
+                    >Project Details <span class="required">*</span></label
+                  >
+                  <textarea
+                    id="details"
+                    name="details"
+                    required
+                    placeholder="Please describe your project in detail. Include info about current power setup, your needs, preferred equipment, and any specific requirements."
+                  ></textarea>
+                  <div class="invalid-feedback" id="err-details">
+                    Project details are required.
+                  </div>
+                </div>
+
+                <div class="form-row-full" style="margin-top: 12px">
+                  <label for="additionalInfo"
+                    >Additional Information (Optional)</label
+                  >
+                  <textarea
+                    id="additionalInfo"
+                    name="additionalInfo"
+                    placeholder="Any other details or questions you'd like to share..."
+                  ></textarea>
+                </div>
+              </div>
+
+              <!-- Preferences -->
+              <div class="form-card" aria-labelledby="prefs">
+                <h2 id="prefs">⚙️ Preferences</h2>
+
+                <div class="form-row">
+                  <div>
+                    <label for="preferredContact"
+                      >Preferred Contact Method
+                      <span class="required">*</span></label
+                    >
+                    <select
+                      id="preferredContact"
+                      name="preferredContact"
+                      required
+                    >
+                      <option value="">Select preference...</option>
+                      <option>Email</option>
+                      <option>Phone Call</option>
+                      <option>WhatsApp</option>
+                      <option>Text Message</option>
+                    </select>
+                    <div class="invalid-feedback" id="err-preferredContact">
+                      Please choose how you'd like to be contacted.
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="notification"
+                      >Notification Preference
+                      <span class="required">*</span></label
+                    >
+                    <select id="notification" name="notification" required>
+                      <option value="">Select preference...</option>
+                      <option>Morning (8AM-12PM)</option>
+                      <option>Afternoon (12PM-5PM)</option>
+                      <option>Evening (5PM-9PM)</option>
+                      <option>Any time</option>
+                    </select>
+                    <div class="invalid-feedback" id="err-notification">
+                      Please choose a notification window.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="submit-row">
+                <button
+                  type="submit"
+                  id="submitBtn"
+                  class="submit-btn"
+                  aria-live="polite"
+                >
+                  <span id="btnLabel">Submit Quote Request</span>
+                  <span
+                    id="btnSpinner"
+                    style="display: none"
+                    aria-hidden="true"
+                    class="spinner"
+                  ></span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Toast + back-to-top -->
+    <div
+      id="toastSuccess"
+      class="toast-success"
+      role="status"
+      aria-live="polite"
+    >
+      ✓ Thank you — your quote request was submitted. We will contact you within
+      24 hours.
+    </div>
+    <div id="backToTop" aria-label="Back to top" title="Back to top">↑</div>
+
+    <!-- Footer with partners left and socials right -->
+    <footer>
+      <div class="footer-grid">
+        <div class="partners" aria-label="Partners">
+          <strong style="margin-bottom: 6px; display: block">Partners</strong>
+          <a href="#" target="_blank" rel="noopener">Blue Carbon</a>
+          <a href="#" target="_blank" rel="noopener">Quanta</a>
+          <a href="#" target="_blank" rel="noopener">Riello</a>
+          <a href="#" target="_blank" rel="noopener">Huawei</a>
+          <a href="#" target="_blank" rel="noopener">Felicity</a>
+          <a href="#" target="_blank" rel="noopener">Rubitec Solar</a>
+          <a href="#" target="_blank" rel="noopener">GoodWe</a>
+          <a href="#" target="_blank" rel="noopener">Blue Camel Energy</a>
+          <a href="#" target="_blank" rel="noopener">Sungrow</a>
+          <a href="#" target="_blank" rel="noopener">Green Solar</a>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 8px;
+          "
+        >
+          <div class="socials" aria-label="Social links">
+            <a href="#" aria-label="Facebook" target="_blank" rel="noopener"
+              >Facebook</a
+            >
+            <a href="#" aria-label="Instagram" target="_blank" rel="noopener"
+              >Instagram</a
+            >
+            <a
+              href="https://wa.me/"
+              aria-label="WhatsApp"
+              target="_blank"
+              rel="noopener"
+              >WhatsApp</a
+            >
+            <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener"
+              >LinkedIn</a
+            >
+            <a href="#" aria-label="X" target="_blank" rel="noopener">X</a>
+          </div>
+          <div style="opacity: 0.85; font-size: 0.92rem">
+            Email:
+            <a
+              href="mailto:integritysolutions@gmail.com"
+              style="color: #fff; text-decoration: underline"
+              >adekunleade@gmail.com</a
+            >
+            | Phone: +234 802 859 1789
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      /* ----------------------------
+  Utilities & selectors
+---------------------------- */
+      const form = document.getElementById("quoteForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const btnLabel = document.getElementById("btnLabel");
+      const btnSpinner = document.getElementById("btnSpinner");
+      const toast = document.getElementById("toastSuccess");
+      const serverError = document.getElementById("serverError");
+      const backToTop = document.getElementById("backToTop");
+      const quoteContainer = document.getElementById("quoteContainer");
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuToggle &&
+        menuToggle.addEventListener("click", () => {
+          const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+          menuToggle.setAttribute("aria-expanded", expanded ? "false" : "true");
+          navLinks && navLinks.classList.toggle("active");
+        });
+
+      /* Fade-in observer */
+      try {
+        const obs = new IntersectionObserver(
+          ([e]) => {
+            if (e.isIntersecting) quoteContainer.classList.add("visible");
+          },
+          { threshold: 0.18 }
+        );
+        obs.observe(quoteContainer);
+      } catch (e) {
+        quoteContainer.classList.add("visible");
+      }
+
+      /* ---------- validation rules ---------- */
+      const requiredRules = [
+        { id: "name", type: "text" },
+        { id: "email", type: "email" },
+        { id: "phone", type: "phone" },
+        { id: "service", type: "select" },
+        { id: "address", type: "text" },
+        { id: "budget", type: "number" },
+        { id: "timeline", type: "select" },
+        { id: "details", type: "text" },
+        { id: "preferredContact", type: "select" },
+        { id: "notification", type: "select" },
+      ];
+
+      function validateField(field) {
+        const val = field.value ? String(field.value).trim() : "";
+        const id = field.id;
+        const rule = requiredRules.find((r) => r.id === id);
+        const feedback = document.getElementById("err-" + id);
+        // clear previous states
+        field.classList.remove("invalid");
+        if (feedback) feedback.classList.remove("show-feedback");
+
+        if (!rule) return true; // field not in requiredRules -> optional
+        if (rule.type === "text") {
+          if (!val) {
+            field.classList.add("invalid");
+            feedback && feedback.classList.add("show-feedback");
+            return false;
+          }
+          return true;
+        }
+        if (rule.type === "email") {
+          // simple email regex
+          const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+          if (!ok) {
+            field.classList.add("invalid");
+            feedback && feedback.classList.add("show-feedback");
+            return false;
+          }
+          return true;
+        }
+        if (rule.type === "phone") {
+          // accept digits, + and spaces, min 7 digits
+          const digits = val.replace(/\D/g, "");
+          if (!digits || digits.length < 7) {
+            field.classList.add("invalid");
+            feedback && feedback.classList.add("show-feedback");
+            return false;
+          }
+          return true;
+        }
+        if (rule.type === "select") {
+          if (!val) {
+            field.classList.add("invalid");
+            feedback && feedback.classList.add("show-feedback");
+            return false;
+          }
+          return true;
+        }
+        if (rule.type === "number") {
+          const n = Number(val);
+          if (!val || isNaN(n) || n < 0) {
+            field.classList.add("invalid");
+            feedback && feedback.classList.add("show-feedback");
+            return false;
+          }
+          return true;
+        }
+        return true;
+      }
+
+      /* attach blur listener for inline validation */
+      requiredRules.forEach((r) => {
+        const el = document.getElementById(r.id);
+        if (!el) return;
+        el.addEventListener("blur", () => validateField(el));
+        el.addEventListener("input", () => {
+          // remove invalid as user types
+          if (el.classList.contains("invalid")) validateField(el);
+          saveDraft(); // autosave after each change
+        });
+      });
+
+      /* ----------------------------
+   localStorage draft save/restore
+   key: integrity_quote_draft
+---------------------------- */
+      const DRAFT_KEY = "integrity_quote_draft_v1";
+      function saveDraft() {
+        try {
+          const data = {};
+          new FormData(form).forEach((v, k) => (data[k] = v));
+          localStorage.setItem(DRAFT_KEY, JSON.stringify(data));
+          window.__formDirty = true;
+        } catch (e) {}
+      }
+      function restoreDraft() {
+        try {
+          const raw = localStorage.getItem(DRAFT_KEY);
+          if (!raw) return;
+          const data = JSON.parse(raw);
+          Object.keys(data).forEach((k) => {
+            const el = form.elements[k];
+            if (!el) return;
+            el.value = data[k];
+          });
+        } catch (e) {}
+      }
+      restoreDraft();
+
+      /* Warn if leaving with unsaved changes */
+      window.addEventListener("beforeunload", (ev) => {
+        // if there is draft and form not freshly submitted
+        const raw = localStorage.getItem(DRAFT_KEY);
+        if (raw) {
+          ev.preventDefault();
+          ev.returnValue = "";
+          return "";
+        }
+      });
+
+      /* clear draft on successful submission */
+      function clearDraft() {
+        localStorage.removeItem(DRAFT_KEY);
+        window.__formDirty = false;
+      }
+
+      /* -------------- submission -------------- */
+      async function setSubmitting(is) {
+        if (is) {
+          submitBtn.setAttribute("disabled", "disabled");
+          btnSpinner.style.display = "inline-block";
+          btnLabel.textContent = "Sending…";
+        } else {
+          submitBtn.removeAttribute("disabled");
+          btnSpinner.style.display = "none";
+          btnLabel.textContent = "Submit Quote Request";
+        }
+      }
+
+      form.addEventListener("submit", async (ev) => {
+        ev.preventDefault();
+        serverError.classList.remove("show");
+        serverError.textContent = "";
+        // validate all required fields
+        let allValid = true;
+        requiredRules.forEach((r) => {
+          const el = document.getElementById(r.id);
+          if (el) {
+            const ok = validateField(el);
+            if (!ok) allValid = false;
+          } else {
+            // fallback: element might be named but not have id - attempt by name
+            const byName = form.elements[r.id];
+            if (
+              byName &&
+              byName.required &&
+              !String(byName.value || "").trim()
+            ) {
+              allValid = false;
+            }
+          }
+        });
+        if (!allValid) {
+          // focus first invalid
+          const first = form.querySelector(".invalid");
+          first &&
+            first.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+
+        setSubmitting(true);
+
+        const endpoint = "https://formspree.io/f/mkgdzegn";
+        try {
+          // fetch with FormData
+          const fd = new FormData(form);
+          const res = await fetch(endpoint, {
+            method: "POST",
+            body: fd,
+            headers: { Accept: "application/json" },
+          });
+
+          if (res.ok) {
+            // success
+            toast.classList.add("show");
+            toast.focus && toast.focus();
+            clearDraft();
+            setSubmitting(false);
+            form.reset();
+            // hide any lingering field errors
+            document
+              .querySelectorAll(".invalid")
+              .forEach((el) => el.classList.remove("invalid"));
+            document
+              .querySelectorAll(".show-feedback")
+              .forEach((e) => e.classList.remove("show-feedback"));
+            // scroll to top to show toast
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            // auto-hide after 6s
+            setTimeout(() => toast.classList.remove("show"), 6000);
+          } else {
+            // try parse JSON message
+            let errText =
+              "Problem sending request. Please try again or email integritysolutions@gmail.com";
+            try {
+              const payload = await res.json();
+              if (payload && payload.error) errText = payload.error;
+            } catch (_) {}
+            serverError.textContent = errText;
+            serverError.classList.add("show");
+            setSubmitting(false);
+          }
+        } catch (err) {
+          serverError.textContent =
+            "Network error. Please check your connection and try again.";
+          serverError.classList.add("show");
+          setSubmitting(false);
+        }
+      });
+
+      /* clicking outside toast closes it */
+      document.addEventListener("click", (e) => {
+        if (toast.classList.contains("show")) {
+          if (!toast.contains(e.target)) toast.classList.remove("show");
+        }
+      });
+      toast.addEventListener("click", () => toast.classList.remove("show"));
+
+      /* auto-save draft periodically (every 3s when there are changes) */
+      let saveTimer = null;
+      form.addEventListener("input", () => {
+        if (saveTimer) clearTimeout(saveTimer);
+        saveTimer = setTimeout(saveDraft, 800);
+      });
+
+      /* Back to top logic */
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) backToTop.classList.add("show");
+        else backToTop.classList.remove("show");
+      });
+      backToTop.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      );
+
+      /* Accessibility: allow Enter on spinner/button when focused */
+      submitBtn.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") e.preventDefault();
+      });
+
+      /* Basic input normalization for phone when submitting: remove spaces */
+      form.addEventListener("submit", () => {
+        const phone = form.elements["phone"];
+        if (phone)
+          phone.value = (phone.value || "").replace(/\s+/g, " ").trim();
+      });
+
+      /* restore focus outline for keyboard users automatically (small enhancement) */
+      (function () {
+        const handleFirstTab = (e) => {
+          if (e.key === "Tab") document.body.classList.add("user-is-tabbing");
+          window.removeEventListener("keydown", handleFirstTab);
+        };
+        window.addEventListener("keydown", handleFirstTab);
+      })();
+
+      /* restore draft on load already done above; ensure UI updated */
+      document.addEventListener("DOMContentLoaded", () => {
+        // populate inputs from draft if any (already done), but ensure selects and textareas show value
+        // no-op here since restoreDraft already set values
+      });
+    </script>
+  </body>
+</html>
